@@ -65,14 +65,14 @@ npm install
 npm run dev
 ```
 
-### 3. Open spring-stream-backend in an IDE & run SpringStreamBackendApplication.java or
+### 4. Open spring-stream-backend in an IDE & run SpringStreamBackendApplication.java or
 ```shell
 mvn clean
 mvn spring-boot:run
 ```
 - Spring-boot app will be running in [http://localhost:8080](http://localhost:8080/api/v1/videos)
 
-### 4. Open the app in your browser
+### 5. Open the app in your browser
 Visit [http://localhost:5173](http://localhost:5173/) in your browser.
 
 
