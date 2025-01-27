@@ -6,6 +6,8 @@
   </h3>
 </div>
 
+[Watch this video on YouTube](https://youtu.be/SAb4zRyxrD4?si=12KM7RjNj2XK1_9q)
+
 ## 🚀 Features
 - **Segmented Video Streaming:** Streams videos in segments, similar to real-world applications ☑️.
 - **Video Upload:** Upload any video with thumbnails ☑️.
