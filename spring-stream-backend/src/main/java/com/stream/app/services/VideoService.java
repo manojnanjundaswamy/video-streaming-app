@@ -29,4 +29,5 @@ public interface VideoService {
     public boolean savethumbnailFile(Video video, MultipartFile thumbnailFile);
 
 
+    public boolean delete(String videoId);
 }

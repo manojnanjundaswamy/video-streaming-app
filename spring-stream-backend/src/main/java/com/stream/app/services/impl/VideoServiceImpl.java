@@ -172,6 +172,12 @@ public class VideoServiceImpl implements VideoService {
         }
     }
 
+    @Override
+    public boolean delete(String videoId) {
+        videoRepository.deleteById(videoId);
+        return videoRepository.findById(videoId).isEmpty();
+    }
+
 
     @Override
     public Video get(String videoId) {

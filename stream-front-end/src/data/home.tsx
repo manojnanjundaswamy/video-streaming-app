@@ -147,4 +147,100 @@ export const videos = [
     videoUrl:
       "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
   },
+  {
+    id: "6",
+    title: "11K-Seedhe Maut",
+    channel: {
+      name: "Seedhe Maut",
+      id: "CalebCurry",
+      profileUrl:
+        "https://yt3.ggpht.com/ytc/AIdro_kicc20plS1itNki_iJvr3nrvPNKh-EJAWHnz0Qh0AB=s88-c-k-c0x00ffffff-no-rj",
+    },
+    views: 2800000,
+    postedAt: new Date("2023-03-03"),
+    duration: 54,
+    thumbnailUrl: "https://i.ytimg.com/vi/Q5r9-k7xYGw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAVfpfXvOKyYZJ3QVrVxJTkWSDgWw",
+    videoUrl:
+      "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    id: "7",
+    title: "4 UI Design Tools I Can't Live Without",
+    channel: {
+      name: "Josh Tried Coding",
+      id: "JoshTriedCoding",
+      profileUrl:
+        "https://yt3.ggpht.com/BOomnT3SS1g-FQSUVBy51TaK2ylqbQzD8zeV783mM-W1q3MMbvE8jdjEeWwFqHmlm5Dk4dSAtg=s68-c-k-c0x00ffffff-no-rj",
+    },
+    views: 10323340,
+    postedAt: new Date("2023-08-09"),
+    duration: 100,
+    thumbnailUrl: "https://i.ytimg.com/vi/PQfQZ9iH8bg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBSSx4qnFvpffM4TkH_WmnYv-96OQ",
+    videoUrl:
+      "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    id: "8",
+    title: "React Native Tutorial for Beginners - Build a React Native App",
+    channel: {
+      name: "Programming with Mosh",
+      id: "ProgrammingwithMosh",
+      profileUrl:
+        "https://yt3.ggpht.com/ebu9ZksIXw0tUWBZd6rtk-It8VGSk8AdfSI_eGR-fl6WGet9LnVPngNQCmjdLJeGXpuylwYInQ=s68-c-k-c0x00ffffff-no-rj",
+    },
+    views: 2900000,
+    postedAt: new Date("2023-09-09"),
+    duration: 105,
+    thumbnailUrl: "https://i.ytimg.com/vi/0-S5a0eXPoc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYxSooYDrdhPoTaTWQt9BQmo9Nxw",
+    videoUrl:
+      "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    id: "4",
+    title: "Samsung Tab S9 Ultra: Is the iPad Killer Real?",
+    channel: {
+      name: "Marques Brownlee",
+      id: "marquesBrownlee",
+      profileUrl:
+        "https://yt3.ggpht.com/lkH37D712tiyphnu0Id0D5MwwQ7IRuwgQLVD05iMXlDWO-kDHut3uI4MgIEAQ9StK0qOST7fiA=s68-c-k-c0x00ffffff-no-rj",
+    },
+    views: 5200000,
+    postedAt: new Date("2023-9-19"),
+    duration: 4343,
+    thumbnailUrl: "https://i.ytimg.com/vi/sl0UUhmaiDU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCTzQTfEIewHZutr8LdMLdTnjAy4g",
+    videoUrl:
+      "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    id: "5",
+    title: "57 Years Apart - A Boy And a Man Talk About Life",
+    channel: {
+      name: "FACTS.",
+      id: "facts",
+      profileUrl:
+        "https://yt3.ggpht.com/ytc/AIdro_mQsjhVR2BqEbwlykAPOjonmlxKXnwfWCDvH0x7Q9s64jo=s68-c-k-c0x00ffffff-no-rj",
+    },
+    views: 32000000,
+    postedAt: new Date("2023-03-02"),
+    duration: 1000,
+    thumbnailUrl: "https://i.ytimg.com/vi/BqSxjmvXzzY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBch3HwqgcA71DvV4folbySMg7fEA",
+    videoUrl:
+      "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    id: "6",
+    title: "11K-Seedhe Maut",
+    channel: {
+      name: "Seedhe Maut",
+      id: "CalebCurry",
+      profileUrl:
+        "https://yt3.ggpht.com/ytc/AIdro_kicc20plS1itNki_iJvr3nrvPNKh-EJAWHnz0Qh0AB=s88-c-k-c0x00ffffff-no-rj",
+    },
+    views: 2800000,
+    postedAt: new Date("2023-03-03"),
+    duration: 54,
+    thumbnailUrl: "https://i.ytimg.com/vi/Q5r9-k7xYGw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAVfpfXvOKyYZJ3QVrVxJTkWSDgWw",
+    videoUrl:
+      "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
 ]

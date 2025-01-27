@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import VideoUpload from "./components/VideoUpload";
 import VideoPlayer from "./components/VideoPlayer";
-import { CSSTransition } from "react-transition-group";
 import { SidebarProvider } from "./contexts/SidebarContext";
 import { PageHeader } from "./layouts/PageHeader";
 import { VideoGridItem } from "./components/VideoGridItem";
 import Modal from "./components/Modal";
+import axios from "axios";
+import { toast, ToastContainer, Zoom } from "react-toastify";
+import {videos as videoMeta} from "./data/home"
 
 function App() {
   const [videoId, setVideoId] = useState(
@@ -46,6 +48,58 @@ function App() {
     setVideoPlaying(true);
   };
 
+  
+  const deleteVideo = (videoId) => {
+    console.log("In Delete Video");
+    var confirmed = window.confirm("Are you sure you want to delete this video?");
+    if (!confirmed) {
+      return;
+    }
+    deleteVideoFromServer(videoId);
+  }
+
+  async function deleteVideoFromServer(videoId) {
+    let response = await axios.delete(
+      `http://localhost:8080/api/v1/videos/${videoId}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    // console.log(response);
+    if(response.status === 200){
+      console.log(`inside response status ${response.data.message}`);
+      // alert(response.data.message);
+      toast.success(response.data.message, {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+        });
+      fetchVideos();
+    }else{
+      toast.error("Error while deleting!!. Please try again", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+        });
+    }
+
+  }
+
   useEffect(() => {
     fetchVideos();
     setVideoPlaying(false);
@@ -55,25 +109,31 @@ function App() {
     const response = await fetch("http://localhost:8080/api/v1/videos");
     const data = await response.json();
     console.log(data);
-
+    var i = 0;
     const videos = data.map((video) => {
       var fileName = new String(video.filePath);
       fileName = fileName.split(/[/\\]/).pop();
-      console.log("FileNMame");
-      console.log(fileName);
-
+      
+      var videoMetaData = videoMeta[i];
+      i++;
+      if(i > videoMeta.length){
+        i=0;
+      } 
       return {
         id: video.videoId,
         title: video.title,
         channel: {
-          name: "GrimLive",
-          id: "grimLive",
-          profileUrl:
-            "https://yt3.ggpht.com/HVKmWEzK-Zv7XFefBYYc6RAem2MZg9kApjxgng9YPvgz7GjPVvMD7UdLpoWMB8WC551RRjCzMw=s68-c-k-c0x00ffffff-no-rj",
+          name: videoMetaData.channel.name,
+          id: videoMetaData.channel.id,
+          profileUrl: videoMetaData.channel.profileUrl,
+          // name: "GrimLive",
+          // id: "grimLive",
+          // profileUrl:
+          //   "https://yt3.ggpht.com/HVKmWEzK-Zv7XFefBYYc6RAem2MZg9kApjxgng9YPvgz7GjPVvMD7UdLpoWMB8WC551RRjCzMw=s68-c-k-c0x00ffffff-no-rj",
         },
-        views: 6700,
-        postedAt: new Date("2023-08-29"),
-        duration: 938,
+        views: videoMetaData.views,
+        postedAt: videoMetaData.postedAt,
+        duration: videoMetaData.duration,
         thumbnailUrl: `http://localhost:8080/api/v1/videos/getThumbnail/${video.videoId}`,
         videoUrl: `http://localhost:8080/api/v1/videos/stream/range/${video.videoId}`,
         fileName: fileName,
@@ -83,8 +143,11 @@ function App() {
   }
 
   return (
+    <>
+  
     <div className="overflow-auto">
       <SidebarProvider>
+      <ToastContainer />
         <div className="max-h-screen flex flex-col">
           <PageHeader onClick={handleOpenModal} />
 
@@ -101,12 +164,13 @@ function App() {
             <Modal
               show={showVideoModal}
               onClose={handleVideoCloseModal}
-              title={`Playing Video: ${videos.find((video) => video.id === videoId)?.fileName}`}
+              title={`${videos.find((video) => video.id === videoId)?.fileName}`}
               size="70"
             >
                   <VideoPlayer
                     // src={`http://localhost:8080/api/v1/videos/${videoId}/master.m3u8`}
                     src={`http://localhost:8080/api/v1/videos/stream/range/${videoId}`}
+                    videoEnded={handleVideoCloseModal}
                   ></VideoPlayer>
             </Modal>
 
@@ -115,7 +179,8 @@ function App() {
                 {videos.map((video) => (
                   <VideoGridItem
                     playVideo={playVideo}
-                    key={video.videoId}
+                    deleteVideo={deleteVideo}
+                    key={video.id}
                     video={video}
                   />
                 ))}
@@ -131,6 +196,7 @@ function App() {
         </div>
       </SidebarProvider>
     </div>
+    </>
   );
 }
 

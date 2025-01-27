@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,7 +31,8 @@ import java.util.UUID;
 @CrossOrigin("*")
 public class VideoController {
 
-
+    @Value("${files.video}")
+    String DIR;
     private VideoService videoService;
 
     public VideoController(VideoService videoService) {
@@ -238,6 +240,35 @@ public class VideoController {
                 )
                 .body(resource);
 
+    }
+
+    @DeleteMapping("/{videoId}")
+    public ResponseEntity<?> delete(@PathVariable String videoId) {
+        boolean deletedFromFiles = true;
+        Video video = videoService.get(videoId);
+        //Delete video from file and folder
+        Path videoPath = Paths.get(video.getFilePath());
+        Path thumbnailPath = Paths.get(video.getThumbnailPath());
+        try {
+//            Files.deleteIfExists(videoPath);
+//            Files.deleteIfExists(thumbnailPath);
+//            Files.deleteIfExists(Paths.get(DIR.replace("/","\\")));
+
+            Files.walk(Paths.get(DIR+videoId))
+                    .sorted(Comparator.reverseOrder())
+                    .map(Path::toFile)
+                    .forEach(File::delete);
+        } catch (IOException e) {
+            deletedFromFiles = false;
+//            throw new RuntimeException("Failed to delete video files", e);
+        }
+
+        boolean isDeleted = videoService.delete(videoId);
+        if (deletedFromFiles && isDeleted) {
+            return ResponseEntity.status(HttpStatus.OK).body(CustomMessage.builder().message("Video deleted").success(true).build());
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(CustomMessage.builder().message("Video not deleted, try again!!").success(false).build());
+        }
     }
 
 

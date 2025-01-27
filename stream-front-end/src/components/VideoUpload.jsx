@@ -9,7 +9,7 @@ import {
   Progress,
 } from "flowbite-react";
 import axios from "axios";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { Bounce, ToastContainer, Zoom, toast } from "react-toastify";
 
 
 
@@ -53,7 +53,17 @@ function VideoUpload(props) {
   function handleForm(formEvent) {
     formEvent.preventDefault();
     if (!selectedFile || !thumbNailFile || !meta.title || !meta.description) {
-      toast.warn("Please fill all the fields !!");
+      toast.warn("Please fill all the fields !!",{
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+        });
       return;
     }
     //submit the file to server:
@@ -106,29 +116,39 @@ function VideoUpload(props) {
       setUploading(false);
       toast.success("File uploaded: " + response.data.videoId, {
           position: "top-center",
-          autoClose: "8000",
+          autoClose: "2500",
           hideProgressBar: true,
           closeOnClick: false,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
           theme: "light",
-          transition: Bounce,
+          transition: Zoom,
         });
       resetForm();
       setTimeout(() => {
         handleClickClose();
-      }, 5000);
+      }, 3000);
     } catch (error) {
       console.log(error);
       setUploading(false);
-      toast.error("File not uploaded!, please try again");
+      toast.error("File not uploaded!, please try again", {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+        });
     }
   }
 
   return (
     <div className="">
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Card className="">
         <div>
           <form noValidate className="grid " onSubmit={handleForm}>

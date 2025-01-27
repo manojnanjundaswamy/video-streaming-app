@@ -1,5 +1,5 @@
 import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from "lucide-react";
-import Logo from "../assets/VideoStreaming.gif";
+import Logo from "../assets/VideoStreamingLogo.gif";
 import { Button } from "../components/Button";
 import { useContext, useState } from "react";
 import { useSidebarContext } from "../contexts/SidebarContext";
@@ -13,7 +13,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({ onClick }) => {
   const [showFullWidthSearch, setShowFullWidthSearch] = useState(false);
 
   return (
-    <div className="flex gap-10 lg:gap-20 justify-between pt-2 mb-6 ml-4 mx-10">
+    <div className="flex gap-10 lg:gap-20 justify-between pt-2 mb-6 ml-4 mx-12">
       <PageHeaderFirstSection hidden={showFullWidthSearch} />
       <form
         className={`gap-4 flex-grow justify-center ${
@@ -70,12 +70,9 @@ export function PageHeaderFirstSection({
 
   return (
     <div
-      className={`gap-4 items-center flex-shrink-0 ${
-        hidden ? "hidden" : "flex"
-      }`}
     >
       <a href="/">
-        <img src={Logo} className="h-12" />
+        <img src={Logo} className="h-12 w-36" />
       </a>
     </div>
   );

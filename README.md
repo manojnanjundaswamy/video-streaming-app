@@ -8,6 +8,39 @@
 
 [Watch this video on YouTube](https://youtu.be/SAb4zRyxrD4?si=12KM7RjNj2XK1_9q)
 
+<div style="display: flex; flex-wrap: wrap; gap: 2px;">
+
+  <div style="flex: 1 1 calc(50% - 16px); box-sizing: border-box; min-width: 300px;">
+    <h3>Hovering Effect</h3>
+    <img src="stream-front-end/src/assets/gif/Browse.gif" alt="Hovering Effect" style="width: 100%; border-radius: 8px;">
+  </div>
+
+  <div style="flex: 1 1 calc(50% - 16px); box-sizing: border-box; min-width: 300px;">
+    <h3>Upload Video</h3>
+    <img src="stream-front-end/src/assets/gif/UploadVid.gif" alt="Upload Video" style="width: 100%; border-radius: 8px;">
+  </div>
+
+  <div style="flex: 1 1 calc(50% - 16px); box-sizing: border-box; min-width: 300px;">
+    <h3>Stream Video</h3>
+    <img src="stream-front-end/src/assets/gif/Stream.gif" alt="Stream Video" style="width: 100%; border-radius: 8px;">
+  </div>
+
+  <div style="flex: 1 1 calc(50% - 16px); box-sizing: border-box; min-width: 300px;">
+    <h3>Database</h3>
+    <img src="stream-front-end/src/assets/gif/DB.gif" alt="DB Structure" style="width: 100%; border-radius: 8px;">
+  </div>
+
+  <div style="flex: 1 1 calc(50% - 16px); box-sizing: border-box; min-width: 300px;">
+    <h3>Code Overview</h3>
+    <img src="stream-front-end/src/assets/gif/Code.gif" alt="Code Overview" style="width: 100%; border-radius: 8px;">
+  </div>  
+  <div style="flex: 1 1 calc(50% - 16px); box-sizing: border-box; min-width: 300px;">
+    <h3>Delete Video</h3>
+    <img src="stream-front-end/src/assets/gif/Delete.gif" alt="Delete" style="width: 100%; border-radius: 8px;">
+  </div>
+
+</div>
+
 ## 🚀 Features
 - **Segmented Video Streaming:** Streams videos in segments, similar to real-world applications ☑️.
 - **Video Upload:** Upload any video with thumbnails ☑️.
