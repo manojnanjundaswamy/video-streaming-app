@@ -6,7 +6,7 @@
   </h3>
 </div>
 
-[Watch this video on YouTube](https://youtu.be/SAb4zRyxrD4?si=12KM7RjNj2XK1_9q)
+[Watch this video on YouTube](https://www.youtube.com/watch?v=coB7TRVPXfM)
 
 <div style="display: flex; flex-wrap: wrap; gap: 2px;">
 
